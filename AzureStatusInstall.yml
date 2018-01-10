@@ -1,0 +1,53 @@
+---
+- hosts: [hostname]
+  become: True
+  remote_user: root
+
+  tasks:
+    - name: copy py file
+      copy: 
+        src: /home/dennis/Documents/AzureStatus/AzureStatus.py 
+        dest: /usr/local/bin/AzureStatus.py 
+        owner: root 
+        group: root 
+        mode: 755
+
+    - name: copy init script
+      copy: 
+        src: /home/dennis/Documents/AzureStatus/AzureStatus 
+        dest: /etc/init.d/AzureStatus 
+        owner: root 
+        group: root 
+        mode: 755
+
+    - name: install python stuffs and build-essential
+      apt: 
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - python-pip
+        - python-dev
+        - build-essential
+
+    - name: pip install flask, flask_api, and tornado
+      pip: 
+        name: "{{ item }}"
+      with_items:
+        - flask
+        - tornado
+        - flask_api
+
+    - name: Make /var/log directory
+      file: 
+        path: /var/log/AzureStatus 
+        state: directory
+
+    - name: ensure AzureStatus starts at boot
+      service: 
+        name: AzureStatus 
+        enabled: yes
+
+    - name: Start service
+      service: 
+        name: AzureStatus 
+        state: restarted
