@@ -50,4 +50,4 @@
     - name: Start service
       service: 
         name: AzureStatus 
-        state: restarted
+        state: started
