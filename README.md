@@ -8,4 +8,7 @@ When hit on :8088, it will hit the Azure Instance Metadata Service which is sitt
 This was hooked up originally to an Orion Solarwinds monitoring system which was looking for a 200 OK, and would alert on a 503.
 
 # Install
+
+Built for Ubuntu Server 14.04.
+
 Install using the AzureStatusInstall.yml Ansible playbook.
