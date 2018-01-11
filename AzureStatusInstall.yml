@@ -1,7 +1,7 @@
 ---
 - hosts: [hostname]
   become: True
-  remote_user: root
+  remote_user: dennis
 
   tasks:
     - name: copy py file
@@ -50,4 +50,4 @@
     - name: Start service
       service: 
         name: AzureStatus 
-        state: restarted
+        state: started

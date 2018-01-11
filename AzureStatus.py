@@ -32,8 +32,6 @@ sys.stderr = open('/var/log/AzureStatus/' + 'AzureStatus.stderr', 'a')
 
 app = Flask(__name__)
 
-# INFO: It seems flask won't output your debug logs in debug mode.
-#       This is stupid, so to confuse less people, it's never on.
 app.debug = False
 
 class Formatter(logging.Formatter):
