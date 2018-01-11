@@ -14,7 +14,7 @@
 
     - name: copy init script
       copy: 
-        src: /home/dennis/Documents/AzureStatus/AzureStatus 
+        src: /home/dennis/Documents/AzureStatus/AzureStatus.sh 
         dest: /etc/init.d/AzureStatus 
         owner: root 
         group: root 
