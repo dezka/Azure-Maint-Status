@@ -9,6 +9,6 @@ This was hooked up originally to an Orion Solarwinds monitoring system which was
 
 # Install
 
-Built for Ubuntu Server 14.04.
+Built for Ubuntu Server 14.
 
 Install using the AzureStatusInstall.yml Ansible playbook.
